@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "paaki — Distribución inteligente para Latinoamérica",
-  description: "Productos verificados para tu hogar, movilidad y vida diaria. Seleccionados con criterio, entregados con confianza.",
-  keywords: "paaki, tecnología verde, distribución, Latinoamérica, México, energía solar, movilidad eléctrica, hogar eficiente",
+  title: "Paaki — Acceso inteligente a una vida mejor",
+  description: "Productos útiles, bien elegidos y pensados para acompañarte todos los días.",
+  keywords: "paaki, hogar, tecnología, movilidad, bienestar, herramientas, diversión, productos útiles",
   metadataBase: new URL("https://paaki.com.mx"),
   openGraph: {
-    title: "paaki — Distribución inteligente para Latinoamérica",
-    description: "Productos verificados para tu hogar, movilidad y vida diaria.",
+    title: "Paaki — Acceso inteligente a una vida mejor",
+    description: "Productos útiles, bien elegidos y pensados para acompañarte todos los días.",
     url: "https://paaki.com.mx",
     siteName: "paaki",
     locale: "es_MX",
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "paaki — Distribución inteligente para Latinoamérica",
-    description: "Productos verificados para tu hogar, movilidad y vida diaria.",
+    title: "Paaki — Acceso inteligente a una vida mejor",
+    description: "Productos útiles, bien elegidos y pensados para acompañarte todos los días.",
   },
   robots: { index: true, follow: true },
 };
