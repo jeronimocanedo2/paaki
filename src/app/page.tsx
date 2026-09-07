@@ -24,7 +24,7 @@ export default function Home() {
           <Image src="/logo.png" alt="Paaki" width={180} height={72} priority />
         </a>
         <nav aria-label="Navegación principal">
-          <a href="#producto">Smart Start</a><a href="#confianza">Por qué Paaki</a>
+          <a href="#producto">Smart Start</a><a href="/productos/cama-comprimida">Cama 3 en 1</a><a href="/productos/sofas">Sofás</a><a href="#confianza">Por qué Paaki</a>
         </nav>
         <button className="cart" type="button" aria-label={`Carrito con ${cartCount} productos`}>Carrito <b>{cartCount}</b></button>
       </header>
