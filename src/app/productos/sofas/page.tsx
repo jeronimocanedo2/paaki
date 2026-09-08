@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import CartButton from "../../components/CartButton";
+import { useCart } from "../../components/CartProvider";
 
 const sofas = [
   {
@@ -33,15 +34,15 @@ const sofas = [
 const money = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 });
 
 export default function SofasPage() {
-  const [cartCount, setCartCount] = useState(0);
+  const { addItem } = useCart();
 
   return (
     <main>
       <div className="announcement">Envíos desde Guadalajara · Compra segura</div>
       <header className="navbar">
-        <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo.png" alt="Paaki" width={180} height={72} priority /></a>
-        <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/#producto">Smart Start</a><a href="/productos/cama-comprimida">Cama 3 en 1</a></nav>
-        <button className="cart" type="button" aria-label={`Carrito con ${cartCount} productos`}>Carrito <b>{cartCount}</b></button>
+        <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
+        <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/productos/base-smart-start">Smart Start</a><a href="/productos/cama-comprimida">Cama 3 en 1</a><a href="/productos/sofas">Sofás</a><a href="/#confianza">Por qué Paaki</a></nav>
+        <CartButton />
       </header>
 
       <div className="breadcrumb"><a href="/">Inicio</a><span>/</span><span>Sofás</span></div>
@@ -70,7 +71,7 @@ export default function SofasPage() {
                 </dl>
                 <div className="sofa-buy-row">
                   <div><span className="price">{money.format(sofa.price)}</span><small>MXN · Disponibilidad por confirmar</small></div>
-                  <button className="buy-button" type="button" onClick={() => setCartCount((count) => count + 1)}>Agregar</button>
+                  <button className="buy-button" type="button" onClick={() => addItem({ id: sofa.name.toLowerCase().replaceAll(" ", "-"), name: sofa.name, price: sofa.price, image: sofa.image })}>Agregar</button>
                 </div>
               </div>
             </article>

@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import CartButton from "../../components/CartButton";
+import { useCart } from "../../components/CartProvider";
 
 const sizes = [
   { name: "Individual", price: 8000 },
@@ -14,15 +16,15 @@ const money = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN
 
 export default function CompressedBedPage() {
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
-  const [cartCount, setCartCount] = useState(0);
+  const { addItem } = useCart();
 
   return (
     <main>
       <div className="announcement">Envíos desde Guadalajara · Compra segura</div>
       <header className="navbar">
-        <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo.png" alt="Paaki" width={180} height={72} priority /></a>
-        <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/#producto">Smart Start</a></nav>
-        <button className="cart" type="button" aria-label={`Carrito con ${cartCount} productos`}>Carrito <b>{cartCount}</b></button>
+        <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
+        <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/productos/base-smart-start">Smart Start</a><a href="/productos/cama-comprimida">Cama 3 en 1</a><a href="/productos/sofas">Sofás</a><a href="/#confianza">Por qué Paaki</a></nav>
+        <CartButton />
       </header>
 
       <div className="breadcrumb"><a href="/">Inicio</a><span>/</span><span>Cama comprimida 3 en 1</span></div>
@@ -49,7 +51,7 @@ export default function CompressedBedPage() {
           </fieldset>
           <div className="buy-row">
             <div><span className="price">{money.format(selectedSize.price)}</span><small>MXN · Disponibilidad por confirmar</small></div>
-            <button className="buy-button" type="button" onClick={() => setCartCount((count) => count + 1)}>Agregar al carrito</button>
+            <button className="buy-button" type="button" onClick={() => addItem({ id: `cama-comprimida-${selectedSize.name}`, name: "Cama comprimida 3 en 1", variant: selectedSize.name, price: selectedSize.price, image: "/cama-comprimida-3-en-1.jpeg" })}>Agregar al carrito</button>
           </div>
           <p className="shipping-note">El colchón puede tardar hasta 72 horas en expandirse por completo después de abrir el empaque.</p>
           <a className="back-link" href="/">← Volver a Paaki</a>
