@@ -13,14 +13,14 @@ const sizes = [
 ];
 
 const photos = [
-  { src: "/smart-start-5245.jpg", alt: "Base Smart Start armada con la cabecera elevada", label: "Posición elevada" },
-  { src: "/smart-start-5250.jpg", alt: "Base Smart Start completamente armada en posición plana", label: "Vista completa" },
-  { src: "/smart-start-5246.jpg", alt: "Mecanismo lateral de elevación de la Base Smart Start", label: "Mecanismo" },
-  { src: "/smart-start-5253.jpg", alt: "Control de la Base Smart Start en uso con la luz azul encendida", label: "Control en funcionamiento" },
-  { src: "/smart-start-5220.jpg", alt: "Base Smart Start plegada antes de instalarse", label: "Diseño plegable" },
+  { src: "/smart-start-5245.jpg", alt: "Base Smart Start armada con la cabecera elevada", label: "Posición elevada", note: "Eleva la cabecera con solo presionar un botón" },
+  { src: "/smart-start-5250.jpg", alt: "Base Smart Start completamente armada en posición plana", label: "Vista completa", note: "Perfil firme y estable para colocar tu colchón" },
+  { src: "/smart-start-5246.jpg", alt: "Mecanismo lateral de elevación de la Base Smart Start", label: "Mecanismo", note: "Sistema eléctrico integrado bajo la estructura" },
+  { src: "/smart-start-5253.jpg", alt: "Control de la Base Smart Start en uso con la luz azul encendida", label: "Control en funcionamiento", note: "Indicador azul al activar el movimiento" },
+  { src: "/smart-start-5220.jpg", alt: "Base Smart Start plegada antes de instalarse", label: "Diseño plegable", note: "Facilita su transporte y su instalación" },
   { src: "/smart-start-5229.jpg", alt: "Patas, control y accesorios incluidos con la Base Smart Start", label: "Accesorios", note: "Accesorios incluidos con tu base" },
-  { src: "/smart-start-5231.jpg", alt: "Estructura inferior de acero de la Base Smart Start", label: "Estructura" },
-  { src: "/smart-start-5213.jpg", alt: "Empaque compacto de la Base Smart Start", label: "Empaque" },
+  { src: "/smart-start-5231.jpg", alt: "Estructura inferior de acero de la Base Smart Start", label: "Estructura", note: "Acero resistente diseñado para brindar estabilidad" },
+  { src: "/smart-start-5213.jpg", alt: "Empaque compacto de la Base Smart Start", label: "Empaque", note: "Empaque compacto y protegido para su traslado" },
 ];
 
 const money = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 });
@@ -47,7 +47,7 @@ export default function SmartStartPage() {
           <div className="smart-gallery">
             <div className="smart-gallery-main">
               <Image src={selectedPhoto.src} alt={selectedPhoto.alt} width={1350} height={1800} className="smart-main-image" priority />
-              <div className="inventory-caption"><span>Fotografía real</span><strong>{selectedPhoto.label}</strong><small>{selectedPhoto.note ?? "Inventario disponible en Guadalajara"}</small></div>
+              <div className="inventory-caption"><span>Fotografía real</span><strong>{selectedPhoto.label}</strong><small>{selectedPhoto.note}</small></div>
             </div>
             <div className="smart-thumbnails" aria-label="Galería de fotografías de Smart Start">
               {photos.map((photo) => (
