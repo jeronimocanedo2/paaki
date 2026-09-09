@@ -12,10 +12,22 @@ const sizes = [
   { name: "King", price: 7999, stock: 37, dimensions: "193 × 210 cm" },
 ];
 
+const photos = [
+  { src: "/smart-start-5245.jpg", alt: "Base Smart Start armada con la cabecera elevada", label: "Posición elevada" },
+  { src: "/smart-start-5250.jpg", alt: "Base Smart Start completamente armada en posición plana", label: "Vista completa" },
+  { src: "/smart-start-5246.jpg", alt: "Mecanismo lateral de elevación de la Base Smart Start", label: "Mecanismo" },
+  { src: "/smart-start-5253.jpg", alt: "Control de la Base Smart Start en uso con la luz azul encendida", label: "Control en funcionamiento" },
+  { src: "/smart-start-5220.jpg", alt: "Base Smart Start plegada antes de instalarse", label: "Diseño plegable" },
+  { src: "/smart-start-5229.jpg", alt: "Patas, control y accesorios incluidos con la Base Smart Start", label: "Accesorios", note: "Accesorios incluidos con tu base" },
+  { src: "/smart-start-5231.jpg", alt: "Estructura inferior de acero de la Base Smart Start", label: "Estructura" },
+  { src: "/smart-start-5213.jpg", alt: "Empaque compacto de la Base Smart Start", label: "Empaque" },
+];
+
 const money = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 });
 
 export default function SmartStartPage() {
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const [selectedPhoto, setSelectedPhoto] = useState(photos[0]);
   const { addItem } = useCart();
 
   return (
@@ -32,12 +44,20 @@ export default function SmartStartPage() {
       <section className="product-section product-page-section">
         <div className="product-visual">
           <span className="product-badge">Precio de lanzamiento</span>
-          <div className="inventory-gallery">
-            <Image src="/inventario-smart-start-01.jpeg" alt="Inventario disponible de bases Smart Start en Guadalajara" width={900} height={1600} className="inventory-image inventory-image-main" priority />
-            <Image src="/inventario-smart-start-02.jpeg" alt="Cajas de bases Smart Start listas para entrega" width={900} height={1600} className="inventory-image" />
-            <div className="inventory-caption"><span>Inventario real</span><strong>Disponibles en Guadalajara</strong><small>395 piezas · Entrega sujeta a cobertura</small></div>
+          <div className="smart-gallery">
+            <div className="smart-gallery-main">
+              <Image src={selectedPhoto.src} alt={selectedPhoto.alt} width={1350} height={1800} className="smart-main-image" priority />
+              <div className="inventory-caption"><span>Fotografía real</span><strong>{selectedPhoto.label}</strong><small>{selectedPhoto.note ?? "Inventario disponible en Guadalajara"}</small></div>
+            </div>
+            <div className="smart-thumbnails" aria-label="Galería de fotografías de Smart Start">
+              {photos.map((photo) => (
+                <button type="button" key={photo.src} className={selectedPhoto.src === photo.src ? "smart-thumb active" : "smart-thumb"} onClick={() => setSelectedPhoto(photo)} aria-label={`Ver ${photo.label}`}>
+                  <Image src={photo.src} alt="" width={180} height={180} />
+                </button>
+              ))}
+            </div>
           </div>
-          <p>Fotografías reales de nuestro inventario. Las imágenes detalladas del producto se agregarán próximamente.</p>
+          <p>Fotografías reales del producto, sus accesorios y nuestro inventario.</p>
         </div>
         <div className="product-info">
           <p className="eyebrow">Descanso inteligente</p>
