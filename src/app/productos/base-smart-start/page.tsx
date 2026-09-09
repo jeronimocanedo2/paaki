@@ -76,7 +76,7 @@ export default function SmartStartPage() {
           </fieldset>
           <div className="buy-row">
             <div><span className="price">{money.format(selectedSize.price)}</span><small>MXN · {selectedSize.stock} disponibles</small></div>
-            <button className="buy-button" type="button" onClick={() => addItem({ id: `smart-start-${selectedSize.name}`, name: "Base eléctrica Smart Start", variant: selectedSize.name, price: selectedSize.price, image: "/inventario-smart-start-01.jpeg" })}>Agregar al carrito</button>
+            <button className="buy-button" type="button" onClick={() => addItem({ id: `smart-start-${selectedSize.name}`, name: "Base eléctrica Smart Start", variant: selectedSize.name, price: selectedSize.price, image: "/smart-start-cart-clean.png" })}>Agregar al carrito</button>
           </div>
           <p className="shipping-note">Envío calculado según destino. Inventario en Guadalajara.</p>
           <a className="back-link" href="/">← Volver a Paaki</a>

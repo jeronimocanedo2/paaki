@@ -31,7 +31,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const saved = window.localStorage.getItem("paaki-cart");
     if (saved) {
-      try { setItems(JSON.parse(saved)); } catch { window.localStorage.removeItem("paaki-cart"); }
+      try {
+        const savedItems: CartItem[] = JSON.parse(saved);
+        setItems(savedItems.map((item) => item.id.startsWith("smart-start-") ? { ...item, image: "/smart-start-cart-clean.png" } : item));
+      } catch { window.localStorage.removeItem("paaki-cart"); }
     }
     setReady(true);
   }, []);
@@ -52,7 +55,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       setItems((current) => {
         const match = current.find((item) => item.id === newItem.id);
         return match
-          ? current.map((item) => item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item)
+          ? current.map((item) => item.id === newItem.id ? { ...item, ...newItem, quantity: item.quantity + 1 } : item)
           : [...current, { ...newItem, quantity: 1 }];
       });
       setNotification(`${newItem.name}${newItem.variant ? ` · ${newItem.variant}` : ""}`);
