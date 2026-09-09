@@ -6,10 +6,10 @@ import CartButton from "../../components/CartButton";
 import { useCart } from "../../components/CartProvider";
 
 const sizes = [
-  { name: "Individual", price: 4999, stock: 231, dimensions: "96.5 × 200 cm" },
-  { name: "Matrimonial", price: 5999, stock: 56, dimensions: "135 × 186 cm" },
-  { name: "Queen", price: 6999, stock: 71, dimensions: "150 × 200.4 cm" },
-  { name: "King", price: 7999, stock: 37, dimensions: "193 × 210 cm" },
+  { name: "Individual", price: 4499, stock: 231, dimensions: "96.5 × 200 cm" },
+  { name: "Matrimonial", price: 4699, stock: 56, dimensions: "135 × 186 cm" },
+  { name: "Queen", price: 5199, stock: 71, dimensions: "150 × 200.4 cm" },
+  { name: "King", price: 5999, stock: 37, dimensions: "193 × 210 cm" },
 ];
 
 const photos = [
