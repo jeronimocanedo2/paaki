@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 export type CartItem = {
   id: string;
@@ -25,6 +25,8 @@ const CartContext = createContext<CartContextValue | null>(null);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [ready, setReady] = useState(false);
+  const [notification, setNotification] = useState("");
+  const notificationTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const saved = window.localStorage.getItem("paaki-cart");
@@ -38,21 +40,39 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     if (ready) window.localStorage.setItem("paaki-cart", JSON.stringify(items));
   }, [items, ready]);
 
+  useEffect(() => () => {
+    if (notificationTimer.current) clearTimeout(notificationTimer.current);
+  }, []);
+
   const value = useMemo(() => ({
     items,
     count: items.reduce((total, item) => total + item.quantity, 0),
     subtotal: items.reduce((total, item) => total + item.price * item.quantity, 0),
-    addItem: (newItem: Omit<CartItem, "quantity">) => setItems((current) => {
-      const match = current.find((item) => item.id === newItem.id);
-      return match
-        ? current.map((item) => item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item)
-        : [...current, { ...newItem, quantity: 1 }];
-    }),
+    addItem: (newItem: Omit<CartItem, "quantity">) => {
+      setItems((current) => {
+        const match = current.find((item) => item.id === newItem.id);
+        return match
+          ? current.map((item) => item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item)
+          : [...current, { ...newItem, quantity: 1 }];
+      });
+      setNotification(`${newItem.name}${newItem.variant ? ` · ${newItem.variant}` : ""}`);
+      if (notificationTimer.current) clearTimeout(notificationTimer.current);
+      notificationTimer.current = setTimeout(() => setNotification(""), 3200);
+    },
     changeQuantity: (id: string, quantity: number) => setItems((current) => quantity < 1 ? current.filter((item) => item.id !== id) : current.map((item) => item.id === id ? { ...item, quantity } : item)),
     removeItem: (id: string) => setItems((current) => current.filter((item) => item.id !== id)),
   }), [items]);
 
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider value={value}>
+      {children}
+      <div className={notification ? "cart-toast show" : "cart-toast"} role="status" aria-live="polite">
+        <span className="toast-check">✓</span>
+        <div><strong>Producto agregado al carrito</strong><small>{notification}</small></div>
+        <a href="/carrito">Ver carrito</a>
+      </div>
+    </CartContext.Provider>
+  );
 }
 
 export function useCart() {
