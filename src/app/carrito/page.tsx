@@ -14,7 +14,7 @@ export default function CartPage() {
       <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
       <header className="navbar">
         <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
-        <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/productos/base-smart-start">Smart Start</a><a href="/productos/cama-comprimida">Cama 3 en 1</a><a href="/productos/sofas">Sofás</a><a href="/#confianza">Por qué Paaki</a></nav>
+        <nav aria-label="Navegación principal"><a href="/productos/base-smart-start">Smart Start</a><a href="/productos/base-smart-start#galeria">Galería</a><a href="/productos/base-smart-start#beneficios">Beneficios</a><a href="mailto:direccion@paaki.com.mx">Contacto</a></nav>
         <CartButton />
       </header>
 

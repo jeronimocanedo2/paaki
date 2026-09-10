@@ -35,13 +35,11 @@ export default function SmartStartPage() {
       <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
       <header className="navbar">
         <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
-        <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/productos/base-smart-start">Smart Start</a><a href="/productos/cama-comprimida">Cama 3 en 1</a><a href="/productos/sofas">Sofás</a><a href="/#confianza">Por qué Paaki</a></nav>
+        <nav aria-label="Navegación principal"><a href="/productos/base-smart-start">Smart Start</a><a href="#galeria">Galería</a><a href="#beneficios">Beneficios</a><a href="mailto:direccion@paaki.com.mx">Contacto</a></nav>
         <CartButton />
       </header>
 
-      <div className="breadcrumb"><a href="/">Inicio</a><span>/</span><span>Base Smart Start</span></div>
-
-      <section className="product-section product-page-section">
+      <section className="product-section product-page-section" id="galeria">
         <div className="product-visual">
           <span className="product-badge">Precio de lanzamiento</span>
           <div className="smart-gallery">
@@ -59,7 +57,7 @@ export default function SmartStartPage() {
           </div>
           <p>Fotografías reales del producto, sus accesorios y nuestro inventario.</p>
         </div>
-        <div className="product-info">
+        <div className="product-info" id="beneficios">
           <p className="eyebrow">Descanso inteligente</p>
           <h1 className="product-title">Base eléctrica ajustable Smart Start</h1>
           <p className="product-lead">Eleva la cabecera con solo presionar un botón. Ideal para leer, ver televisión o encontrar una posición más cómoda para descansar.</p>
@@ -79,7 +77,6 @@ export default function SmartStartPage() {
             <button className="buy-button" type="button" onClick={() => addItem({ id: `smart-start-${selectedSize.name}`, name: "Base eléctrica Smart Start", variant: selectedSize.name, price: selectedSize.price, image: "/smart-start-cart-clean.png" })}>Agregar al carrito</button>
           </div>
           <p className="shipping-note">Envío gratis en la Zona Metropolitana de Guadalajara. Inventario en Guadalajara.</p>
-          <a className="back-link" href="/">← Volver a Paaki</a>
         </div>
       </section>
     </main>
