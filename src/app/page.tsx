@@ -6,7 +6,7 @@ import CartButton from "./components/CartButton";
 export default function Home() {
   return (
     <main>
-      <div className="announcement">Envíos desde Guadalajara · Compra segura</div>
+      <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
       <header className="navbar">
         <a className="brand" href="#inicio" aria-label="Paaki, inicio">
           <Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority />
@@ -37,7 +37,7 @@ export default function Home() {
         <p>Buscamos productos útiles, duraderos y con un precio que tenga sentido. Paaki está aquí para hacer la compra más clara, cercana y sencilla.</p>
       </section>
 
-      <footer><a className="brand footer-brand" href="#inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} /></a><p>Acceso inteligente a una vida mejor.</p><p>© 2026 Paaki · Guadalajara, México</p></footer>
+      <footer><a className="brand footer-brand" href="#inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} /></a><p>Acceso inteligente a una vida mejor.<br /><a className="contact-email" href="mailto:direccion@paaki.com.mx">direccion@paaki.com.mx</a></p><p>© 2026 Paaki · Guadalajara, México</p></footer>
     </main>
   );
 }

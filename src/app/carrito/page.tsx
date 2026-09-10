@@ -11,7 +11,7 @@ export default function CartPage() {
 
   return (
     <main>
-      <div className="announcement">Envíos desde Guadalajara · Compra segura</div>
+      <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
       <header className="navbar">
         <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
         <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/productos/base-smart-start">Smart Start</a><a href="/productos/cama-comprimida">Cama 3 en 1</a><a href="/productos/sofas">Sofás</a><a href="/#confianza">Por qué Paaki</a></nav>
@@ -39,9 +39,9 @@ export default function CartPage() {
               ))}
             </div>
             <aside className="cart-summary">
-              <h2>Resumen</h2><div><span>Subtotal</span><strong>{money.format(subtotal)}</strong></div><p>El envío se calculará de acuerdo con el destino.</p>
+              <h2>Resumen</h2><div><span>Subtotal</span><strong>{money.format(subtotal)}</strong></div><div><span>Envío en ZMG</span><strong>Gratis</strong></div><p>Entrega disponible únicamente en la Zona Metropolitana de Guadalajara.</p>
               <button className="buy-button checkout-button" type="button" disabled>Finalizar compra próximamente</button>
-              <small>Estamos preparando el pago seguro. Tu carrito quedará guardado.</small>
+              <small>¿Necesitas ayuda? Escríbenos a <a className="contact-email" href="mailto:direccion@paaki.com.mx">direccion@paaki.com.mx</a>.</small>
             </aside>
           </div>
         )}

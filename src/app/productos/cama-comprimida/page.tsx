@@ -20,7 +20,7 @@ export default function CompressedBedPage() {
 
   return (
     <main>
-      <div className="announcement">Envíos desde Guadalajara · Compra segura</div>
+      <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
       <header className="navbar">
         <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
         <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/productos/base-smart-start">Smart Start</a><a href="/productos/cama-comprimida">Cama 3 en 1</a><a href="/productos/sofas">Sofás</a><a href="/#confianza">Por qué Paaki</a></nav>
@@ -53,7 +53,7 @@ export default function CompressedBedPage() {
             <div><span className="price">{money.format(selectedSize.price)}</span><small>MXN · Disponibilidad por confirmar</small></div>
             <button className="buy-button" type="button" onClick={() => addItem({ id: `cama-comprimida-${selectedSize.name}`, name: "Cama comprimida 3 en 1", variant: selectedSize.name, price: selectedSize.price, image: "/cama-comprimida-3-en-1.jpeg" })}>Agregar al carrito</button>
           </div>
-          <p className="shipping-note">El colchón puede tardar hasta 72 horas en expandirse por completo después de abrir el empaque.</p>
+          <p className="shipping-note">Envío gratis en la Zona Metropolitana de Guadalajara. El colchón puede tardar hasta 72 horas en expandirse por completo después de abrir el empaque.</p>
           <a className="back-link" href="/">← Volver a Paaki</a>
         </div>
       </section>
