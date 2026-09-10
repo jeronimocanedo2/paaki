@@ -173,6 +173,8 @@ fieldset { padding:0; margin:0; border:0; } legend { margin-bottom:.8rem; font-w
 .smart-contact-section p:not(.eyebrow) { margin-bottom:0; color:#dcebd5; }
 .light-button { flex:none; color:var(--green-dark); background:#fff; box-shadow:none; }
 .light-button:hover { color:#fff; background:var(--green); }
+.whatsapp-button { gap:.55rem; }
+.whatsapp-button span { display:inline-grid; place-items:center; padding:.22rem .48rem; color:#fff; border-radius:999px; background:#25d366; font-size:.68rem; letter-spacing:.02em; }
 .trust-section { display:grid; grid-template-columns:1fr 1fr; gap:4rem; padding:6rem; background:var(--green-dark); color:#fff; border-radius:28px; }
 .trust-section .eyebrow { color:var(--lime); }
 .trust-section>p { font-size:1.2rem; line-height:1.7; color:#dcebd5; }

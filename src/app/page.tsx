@@ -48,8 +48,8 @@ export default function Home() {
       </section>
 
       <section className="smart-contact-section" id="contacto">
-        <div><p className="eyebrow">Compra con atención personal</p><h2>¿Tienes una duda antes de elegir?</h2><p>Estamos para ayudarte con medidas, entrega y disponibilidad en Guadalajara.</p></div>
-        <a className="primary-button light-button" href="mailto:direccion@paaki.com.mx">Escribir a Paaki</a>
+        <div><p className="eyebrow">Atención directa por WhatsApp</p><h2>¿Te ayudamos a elegir tu Smart Start?</h2><p>Escríbenos para resolver dudas sobre medidas, disponibilidad y entrega en Guadalajara.</p></div>
+        <a className="primary-button light-button whatsapp-button" href="https://wa.me/523312309999?text=Hola%20Paaki%2C%20me%20interesa%20la%20Base%20Smart%20Start%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" aria-label="Hablar con Paaki por WhatsApp"><span aria-hidden="true">WhatsApp</span> Hablar con Paaki</a>
       </section>
 
       <footer><Image className="footer-brand" src="/logo-header.png" alt="Paaki" width={208} height={88} /><p>Base Smart Start · Envío gratis en la ZMG<br /><a className="contact-email" href="mailto:direccion@paaki.com.mx">direccion@paaki.com.mx</a></p><p>© 2026 Paaki</p></footer>
