@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
 
     const mercadoPagoResult = await mercadoPagoResponse.json();
     if (!mercadoPagoResponse.ok || typeof mercadoPagoResult.checkout_url !== "string") {
-      console.error("Mercado Pago order error", mercadoPagoResponse.status, mercadoPagoResult?.code || mercadoPagoResult?.error || "unknown");
+      console.error("Mercado Pago order error", mercadoPagoResponse.status, JSON.stringify(mercadoPagoResult));
       return NextResponse.json({ error: "Mercado Pago no pudo iniciar el cobro. Inténtalo nuevamente." }, { status: 502 });
     }
     return NextResponse.json({ checkoutUrl: mercadoPagoResult.checkout_url, orderId: mercadoPagoResult.id });
