@@ -55,8 +55,6 @@ export async function POST(request: NextRequest) {
         description: "Producto Paaki con envío gratis en la ZMG",
         quantity,
         unit_price: product.price.toFixed(2),
-        unit_measure: "unit",
-        total_amount: (product.price * quantity).toFixed(2),
       };
     });
 
@@ -72,7 +70,10 @@ export async function POST(request: NextRequest) {
     }
 
     const [firstName, ...lastNameParts] = name.split(/\s+/);
-    const total = items.reduce((sum, item) => sum + Number(item.total_amount), 0).toFixed(2);
+    const total = requestedItems.reduce((sum, requested) => {
+      const product = catalog[String(requested.id)];
+      return sum + product.price * Number(requested.quantity);
+    }, 0).toFixed(2);
     const reference = `PAAKI-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
     const origin = getPublicOrigin(request);
     const payerEmail = process.env.VERCEL_ENV === "preview" ? "comprador_paaki@testuser.com" : email;
