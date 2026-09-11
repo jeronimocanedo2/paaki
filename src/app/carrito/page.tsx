@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { FormEvent, useState } from "react";
 import CartButton from "../components/CartButton";
 import { useCart } from "../components/CartProvider";
 
@@ -8,6 +9,29 @@ const money = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN
 
 export default function CartPage() {
   const { items, subtotal, changeQuantity, removeItem } = useCart();
+  const [submitting, setSubmitting] = useState(false);
+  const [checkoutError, setCheckoutError] = useState("");
+
+  async function startCheckout(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitting(true);
+    setCheckoutError("");
+
+    const customer = Object.fromEntries(new FormData(event.currentTarget).entries());
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: items.map(({ id, quantity }) => ({ id, quantity })), customer }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.checkoutUrl) throw new Error(result.error || "No pudimos iniciar el pago.");
+      window.location.assign(result.checkoutUrl);
+    } catch (error) {
+      setCheckoutError(error instanceof Error ? error.message : "No pudimos iniciar el pago. Inténtalo nuevamente.");
+      setSubmitting(false);
+    }
+  }
 
   return (
     <main>
@@ -39,9 +63,26 @@ export default function CartPage() {
               ))}
             </div>
             <aside className="cart-summary">
-              <h2>Resumen</h2><div><span>Subtotal</span><strong>{money.format(subtotal)}</strong></div><div><span>Envío en ZMG</span><strong>Gratis</strong></div><p>Entrega disponible únicamente en la Zona Metropolitana de Guadalajara.</p>
-              <button className="buy-button checkout-button" type="button" disabled>Finalizar compra próximamente</button>
-              <small>¿Necesitas ayuda? Escríbenos a <a className="contact-email" href="mailto:direccion@paaki.com.mx">direccion@paaki.com.mx</a>.</small>
+              <h2>Resumen</h2><div><span>Subtotal</span><strong>{money.format(subtotal)}</strong></div><div><span>Envío en ZMG</span><strong>Gratis</strong></div>
+              <form className="checkout-form" onSubmit={startCheckout}>
+                <h3>Datos de entrega</h3>
+                <label>Nombre completo<input name="name" type="text" autoComplete="name" required maxLength={100} /></label>
+                <div className="checkout-fields-two">
+                  <label>Teléfono<input name="phone" type="tel" inputMode="tel" autoComplete="tel" required pattern="[0-9 +()-]{10,18}" /></label>
+                  <label>Correo<input name="email" type="email" autoComplete="email" required maxLength={120} /></label>
+                </div>
+                <label>Calle y número<input name="street" type="text" autoComplete="street-address" required maxLength={140} /></label>
+                <div className="checkout-fields-two">
+                  <label>Colonia<input name="neighborhood" type="text" required maxLength={80} /></label>
+                  <label>Código postal<input name="postalCode" type="text" inputMode="numeric" autoComplete="postal-code" required pattern="[0-9]{5}" maxLength={5} /></label>
+                </div>
+                <label>Municipio<select name="municipality" required defaultValue=""><option value="" disabled>Selecciona uno</option><option>Guadalajara</option><option>Zapopan</option><option>San Pedro Tlaquepaque</option><option>Tonalá</option><option>Tlajomulco de Zúñiga</option><option>El Salto</option><option>Juanacatlán</option><option>Ixtlahuacán de los Membrillos</option><option>Zapotlanejo</option></select></label>
+                <label>Referencias para llegar <span>(opcional)</span><textarea name="references" rows={2} maxLength={200} /></label>
+                <p>Entrega únicamente en la Zona Metropolitana de Guadalajara, sin costo.</p>
+                {checkoutError && <p className="checkout-error" role="alert">{checkoutError}</p>}
+                <button className="buy-button checkout-button" type="submit" disabled={submitting}>{submitting ? "Conectando con Mercado Pago…" : "Pagar con Mercado Pago"}</button>
+              </form>
+              <small>Compra protegida por Mercado Pago. ¿Necesitas ayuda? <a className="contact-email" href="https://wa.me/523312309999" target="_blank" rel="noreferrer">Escríbenos por WhatsApp</a>.</small>
             </aside>
           </div>
         )}
