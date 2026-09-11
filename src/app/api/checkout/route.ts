@@ -65,6 +65,7 @@ export async function POST(request: NextRequest) {
     const neighborhood = clean(customer.neighborhood, 80);
     const postalCode = clean(customer.postalCode, 5);
     const municipality = clean(customer.municipality, 80);
+    const references = clean(customer.references, 200);
     if (!name || !/^\S+@\S+\.\S+$/.test(email) || phone.length < 10 || !street || !neighborhood || !/^\d{5}$/.test(postalCode) || !zmgMunicipalities.has(municipality)) {
       return NextResponse.json({ error: "Revisa tus datos de entrega y vuelve a intentarlo." }, { status: 400 });
     }
@@ -93,7 +94,14 @@ export async function POST(request: NextRequest) {
           first_name: firstName,
           last_name: lastNameParts.join(" ") || firstName,
           phone: { area_code: "33", number: phone.slice(-8) },
-          address: { zip_code: postalCode, street_name: street, street_number: "S/N", neighborhood, city: municipality },
+          address: {
+            zip_code: postalCode,
+            street_name: street,
+            street_number: "S/N",
+            neighborhood,
+            city: municipality,
+            ...(references ? { complement: references } : {}),
+          },
         },
         config: {
           statement_descriptor: "PAAKI",
