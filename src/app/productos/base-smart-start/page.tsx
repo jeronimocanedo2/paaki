@@ -6,10 +6,10 @@ import CartButton from "../../components/CartButton";
 import { useCart } from "../../components/CartProvider";
 
 const sizes = [
-  { name: "Individual", price: 4199, stock: 231, dimensions: "96.5 × 200 cm", width: 96.5, length: 200 },
-  { name: "Matrimonial", price: 4499, stock: 56, dimensions: "135 × 186 cm", width: 135, length: 186 },
-  { name: "Queen", price: 4799, stock: 71, dimensions: "150 × 200.4 cm", width: 150, length: 200.4 },
-  { name: "King", price: 5199, stock: 37, dimensions: "193 × 210 cm", width: 193, length: 210 },
+  { name: "Individual", price: 4199, stock: 231, dimensions: "96.5 × 200 cm" },
+  { name: "Matrimonial", price: 4499, stock: 56, dimensions: "135 × 186 cm" },
+  { name: "Queen", price: 4799, stock: 71, dimensions: "150 × 200.4 cm" },
+  { name: "King", price: 5199, stock: 37, dimensions: "193 × 210 cm" },
 ];
 
 const photos = [
@@ -72,28 +72,6 @@ export default function PaakiElevaPage() {
               ))}
             </div>
           </fieldset>
-          <section className="size-comparison" aria-labelledby="size-comparison-title">
-            <div className="size-comparison-heading">
-              <div><span>Guía de proporciones</span><h2 id="size-comparison-title">Compara los tamaños</h2></div>
-              <strong>{selectedSize.name}<small>{selectedSize.dimensions}</small></strong>
-            </div>
-            <div className="size-comparison-grid">
-              {sizes.map((size) => {
-                const selected = selectedSize.name === size.name;
-                return (
-                  <button type="button" key={size.name} className={selected ? "size-comparison-item active" : "size-comparison-item"} onClick={() => setSelectedSize(size)} aria-pressed={selected}>
-                    <span className="size-scale-stage" aria-hidden="true">
-                      <span className="size-scale-bed" style={{ width: `${(size.width / 193) * 100}%`, aspectRatio: `${size.width} / ${size.length}` }}>
-                        <i className="size-scale-head" /><i className="size-scale-hinge" />
-                      </span>
-                    </span>
-                    <strong>{size.name}</strong><small>{size.dimensions}</small>
-                  </button>
-                );
-              })}
-            </div>
-            <p>Representación ilustrativa a la misma escala. El producto real se muestra en la galería de fotografías.</p>
-          </section>
           <div className="buy-row">
             <div><span className="price">{money.format(selectedSize.price)}</span><small>MXN · {selectedSize.stock} disponibles</small></div>
             <button className="buy-button" type="button" onClick={() => addItem({ id: `smart-start-${selectedSize.name}`, name: "Base eléctrica Paaki Eleva", variant: selectedSize.name, price: selectedSize.price, image: "/smart-start-cart-clean.png" })}>Agregar al carrito</button>
