@@ -32,7 +32,7 @@ export default function PaakiElevaPage() {
 
   return (
     <main>
-      <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
+      <div className="announcement">Entrega gratis únicamente en Guadalajara y Zapopan · Contamos con ruta propia</div>
       <header className="navbar">
         <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
         <nav aria-label="Navegación principal"><a href="/productos/paaki-eleva">Paaki Eleva</a><a href="#galeria">Galería</a><a href="#beneficios">Beneficios</a><a href="mailto:direccion@paaki.com.mx">Contacto</a></nav>
@@ -76,7 +76,7 @@ export default function PaakiElevaPage() {
             <div><span className="price">{money.format(selectedSize.price)}</span><small>MXN · {selectedSize.stock} disponibles</small></div>
             <button className="buy-button" type="button" onClick={() => addItem({ id: `smart-start-${selectedSize.name}`, name: "Base eléctrica Paaki Eleva", variant: selectedSize.name, price: selectedSize.price, image: "/smart-start-cart-clean.png" })}>Agregar al carrito</button>
           </div>
-          <p className="shipping-note">Envío gratis en la Zona Metropolitana de Guadalajara. Inventario en Guadalajara.</p>
+          <p className="shipping-note">Entrega gratuita exclusivamente en Guadalajara y Zapopan, dentro de nuestra ruta de reparto.</p>
         </div>
       </section>
     </main>

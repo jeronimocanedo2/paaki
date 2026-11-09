@@ -38,7 +38,7 @@ export default function SofasPage() {
 
   return (
     <main>
-      <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
+      <div className="announcement">Entrega gratis únicamente en Guadalajara y Zapopan · Contamos con ruta propia</div>
       <header className="navbar">
         <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
         <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/productos/paaki-eleva">Paaki Eleva</a><a href="/productos/cama-comprimida">Cama 3 en 1</a><a href="/productos/sofas">Sofás</a><a href="/#confianza">Por qué Paaki</a></nav>
@@ -78,7 +78,7 @@ export default function SofasPage() {
           ))}
         </div>
 
-        <p className="expansion-note"><strong>Envío gratis en la Zona Metropolitana de Guadalajara.</strong> Los productos comprimidos pueden tardar hasta 72 horas en recuperar completamente su forma después de abrirse.</p>
+        <p className="expansion-note"><strong>Entrega gratuita únicamente en Guadalajara y Zapopan, dentro de nuestra ruta de reparto.</strong> Los productos comprimidos pueden tardar hasta 72 horas en recuperar completamente su forma después de abrirse.</p>
         <a className="back-link" href="/">← Volver a Paaki</a>
       </section>
     </main>

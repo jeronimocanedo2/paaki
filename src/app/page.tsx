@@ -11,7 +11,7 @@ const sizes = [
 export default function Home() {
   return (
     <main>
-      <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
+      <div className="announcement">Entrega gratis únicamente en Guadalajara y Zapopan · Contamos con ruta propia</div>
       <header className="navbar">
         <a className="brand" href="#inicio" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
         <nav aria-label="Navegación principal"><a href="#inicio">Inicio</a><a href="#beneficios">Beneficios</a><a href="#precios">Tamaños y precios</a><a href="#contacto">Contacto</a></nav>
@@ -24,7 +24,7 @@ export default function Home() {
           <h1>Descansa mejor.<br /><span>A tu manera.</span></h1>
           <p className="smart-home-lead">Conoce Paaki Eleva, la base que eleva tu cabecera para leer, ver televisión o encontrar una posición más cómoda al descansar.</p>
           <div className="hero-actions"><a className="primary-button" href="/productos/paaki-eleva">Ver tamaños y comprar</a></div>
-          <div className="smart-home-proof"><span><b>Desde $4,199</b> MXN</span><span><b>Envío gratis</b> en ZMG</span><span><b>Máximo 5 días hábiles</b> para recibirla</span></div>
+          <div className="smart-home-proof"><span><b>Desde $4,199</b> MXN</span><span><b>Entrega gratis</b> en Guadalajara y Zapopan</span><span><b>Máximo 5 días hábiles</b> para recibirla</span></div>
         </div>
         <div className="smart-home-visual">
           <div className="hero-photo-frame"><Image src="/smart-start-home-cover.png" alt="Base eléctrica Paaki Eleva en una habitación" width={1630} height={965} priority /></div>
@@ -43,16 +43,16 @@ export default function Home() {
       </section>
 
       <section className="smart-price-section" id="precios">
-        <div className="price-intro"><p className="eyebrow">Elige la medida para tu colchón</p><h2>Una Paaki Eleva para cada espacio.</h2><p>Todos los tamaños incluyen control cableado, patas y accesorios. Envío gratis en la Zona Metropolitana de Guadalajara.</p><a className="primary-button" href="/productos/paaki-eleva">Elegir medida y comprar</a></div>
+        <div className="price-intro"><p className="eyebrow">Elige la medida para tu colchón</p><h2>Una Paaki Eleva para cada espacio.</h2><p>Todos los tamaños incluyen control cableado, patas y accesorios. Entregamos sin costo exclusivamente en Guadalajara y Zapopan, dentro de nuestra ruta de reparto.</p><a className="primary-button" href="/productos/paaki-eleva">Elegir medida y comprar</a></div>
         <div className="home-size-list">{sizes.map((size) => <a href="/productos/paaki-eleva" key={size.name}><span>{size.name}</span><strong>{size.price} <small>MXN</small></strong><b>→</b></a>)}</div>
       </section>
 
       <section className="smart-contact-section" id="contacto">
-        <div><p className="eyebrow">Atención directa por WhatsApp</p><h2>¿Te ayudamos a elegir tu Paaki Eleva?</h2><p>Escríbenos para resolver dudas sobre medidas, disponibilidad y entrega en Guadalajara.</p></div>
+        <div><p className="eyebrow">Atención directa por WhatsApp</p><h2>¿Te ayudamos a elegir tu Paaki Eleva?</h2><p>Escríbenos para resolver dudas sobre medidas, disponibilidad y nuestra ruta de entrega en Guadalajara y Zapopan.</p></div>
         <a className="primary-button light-button whatsapp-button" href="https://wa.me/523312309999?text=Hola%20Paaki%2C%20me%20interesa%20la%20Base%20Paaki%20Eleva%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" aria-label="Hablar con Paaki por WhatsApp"><span aria-hidden="true">WhatsApp</span> Hablar con Paaki</a>
       </section>
 
-      <footer><Image className="footer-brand" src="/logo-header.png" alt="Paaki" width={208} height={88} /><p>Base Paaki Eleva · Envío gratis en la ZMG<br /><a className="contact-email" href="mailto:direccion@paaki.com.mx">direccion@paaki.com.mx</a></p><p>© 2026 Paaki</p></footer>
+      <footer><Image className="footer-brand" src="/logo-header.png" alt="Paaki" width={208} height={88} /><p>Base Paaki Eleva · Entrega gratis únicamente en Guadalajara y Zapopan<br /><a className="contact-email" href="mailto:direccion@paaki.com.mx">direccion@paaki.com.mx</a></p><p>© 2026 Paaki</p></footer>
     </main>
   );
 }
