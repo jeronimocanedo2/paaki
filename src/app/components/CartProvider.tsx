@@ -33,7 +33,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     if (saved) {
       try {
         const savedItems: CartItem[] = JSON.parse(saved);
-        setItems(savedItems.map((item) => item.id.startsWith("smart-start-") ? { ...item, image: "/smart-start-cart-clean.png" } : item));
+        setItems(savedItems.map((item) => item.id.startsWith("smart-start-") ? { ...item, name: "Base eléctrica Paaki Eleva", image: "/smart-start-cart-clean.png" } : item));
       } catch { window.localStorage.removeItem("paaki-cart"); }
     }
     setReady(true);
