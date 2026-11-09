@@ -23,6 +23,13 @@ type CartContextValue = {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
+const paakiElevaPrices: Record<string, number> = {
+  "smart-start-Individual": 4199,
+  "smart-start-Matrimonial": 4499,
+  "smart-start-Queen": 4799,
+  "smart-start-King": 5199,
+};
+
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [ready, setReady] = useState(false);
@@ -34,7 +41,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     if (saved) {
       try {
         const savedItems: CartItem[] = JSON.parse(saved);
-        setItems(savedItems.map((item) => item.id.startsWith("smart-start-") ? { ...item, name: "Base eléctrica Paaki Eleva", image: "/smart-start-cart-clean.png" } : item));
+        setItems(savedItems.map((item) => item.id.startsWith("smart-start-") ? {
+          ...item,
+          name: "Base eléctrica Paaki Eleva",
+          price: paakiElevaPrices[item.id] ?? item.price,
+          image: "/smart-start-cart-clean.png",
+        } : item));
       } catch { window.localStorage.removeItem("paaki-cart"); }
     }
     setReady(true);

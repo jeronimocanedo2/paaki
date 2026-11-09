@@ -2,10 +2,10 @@ import Image from "next/image";
 import CartButton from "./components/CartButton";
 
 const sizes = [
-  { name: "Individual", price: "$4,499" },
-  { name: "Matrimonial", price: "$4,699" },
-  { name: "Queen", price: "$5,199" },
-  { name: "King", price: "$5,999" },
+  { name: "Individual", price: "$4,199" },
+  { name: "Matrimonial", price: "$4,499" },
+  { name: "Queen", price: "$4,799" },
+  { name: "King", price: "$5,199" },
 ];
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
           <h1>Descansa mejor.<br /><span>A tu manera.</span></h1>
           <p className="smart-home-lead">Conoce Paaki Eleva, la base que eleva tu cabecera para leer, ver televisión o encontrar una posición más cómoda al descansar.</p>
           <div className="hero-actions"><a className="primary-button" href="/productos/paaki-eleva">Ver tamaños y comprar</a></div>
-          <div className="smart-home-proof"><span><b>Desde $4,499</b> MXN</span><span><b>Envío gratis</b> en ZMG</span><span><b>Máximo 5 días hábiles</b> para recibirla</span></div>
+          <div className="smart-home-proof"><span><b>Desde $4,199</b> MXN</span><span><b>Envío gratis</b> en ZMG</span><span><b>Máximo 5 días hábiles</b> para recibirla</span></div>
         </div>
         <div className="smart-home-visual">
           <div className="hero-photo-frame"><Image src="/smart-start-home-cover.png" alt="Base eléctrica Paaki Eleva en una habitación" width={1630} height={965} priority /></div>
