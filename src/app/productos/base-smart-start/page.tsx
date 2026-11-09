@@ -45,7 +45,7 @@ export default function PaakiElevaPage() {
           <div className="smart-gallery">
             <div className="smart-gallery-main">
               <Image src={selectedPhoto.src} alt={selectedPhoto.alt} width={1350} height={1800} className="smart-main-image" priority />
-              <div className="inventory-caption"><span>Fotografía real</span><strong>{selectedPhoto.label}</strong><small>{selectedPhoto.note}</small></div>
+              <div className="inventory-caption"><span>Fotografía real · Medida Individual</span><strong>{selectedPhoto.label}</strong><small>{selectedPhoto.note}</small></div>
             </div>
             <div className="smart-thumbnails" aria-label="Galería de fotografías de Paaki Eleva">
               {photos.map((photo) => (
@@ -55,13 +55,14 @@ export default function PaakiElevaPage() {
               ))}
             </div>
           </div>
-          <p>Fotografías reales del producto, sus accesorios y nuestro inventario.</p>
+          <p><strong>Importante:</strong> las fotografías corresponden a la medida Individual y se muestran como referencia del diseño, materiales y funcionamiento.</p>
         </div>
         <div className="product-info" id="beneficios">
           <p className="eyebrow">Descanso inteligente</p>
           <h1 className="product-title">Base eléctrica ajustable Paaki Eleva</h1>
           <p className="product-lead">Eleva la cabecera con solo presionar un botón. Ideal para leer, ver televisión o encontrar una posición más cómoda para descansar.</p>
           <ul className="feature-list"><li>Elevación eléctrica de cabecera</li><li>Control cableado de 2 botones</li><li>Estructura plegable de acero</li><li>Instalación sencilla</li></ul>
+          <div className="size-photo-notice" role="note"><strong>Recibirás la medida que elijas.</strong><span>Las fotos muestran la versión Individual, pero tu pedido se prepara y entrega en la medida seleccionada: Individual, Matrimonial, Queen o King.</span></div>
           <fieldset>
             <legend>Elige tu tamaño</legend>
             <div className="size-grid">
