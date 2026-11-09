@@ -38,7 +38,7 @@ export default function CartPage() {
       <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
       <header className="navbar">
         <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
-        <nav aria-label="Navegación principal"><a href="/productos/base-smart-start">Smart Start</a><a href="/productos/base-smart-start#galeria">Galería</a><a href="/productos/base-smart-start#beneficios">Beneficios</a><a href="mailto:direccion@paaki.com.mx">Contacto</a></nav>
+        <nav aria-label="Navegación principal"><a href="/productos/paaki-eleva">Paaki Eleva</a><a href="/productos/paaki-eleva#galeria">Galería</a><a href="/productos/paaki-eleva#beneficios">Beneficios</a><a href="mailto:direccion@paaki.com.mx">Contacto</a></nav>
         <CartButton />
       </header>
 
@@ -48,7 +48,7 @@ export default function CartPage() {
         {items.length === 0 ? (
           <div className="empty-cart">
             <Image src="/paaki-carrito.png" alt="Paaki caminando con un carrito de compras" width={420} height={525} priority />
-            <div><h2>Tu carrito está vacío</h2><p>Explora nuestros productos y agrega tus favoritos.</p><a className="primary-button" href="/productos/base-smart-start">Ver productos</a></div>
+            <div><h2>Tu carrito está vacío</h2><p>Explora nuestros productos y agrega tus favoritos.</p><a className="primary-button" href="/productos/paaki-eleva">Ver productos</a></div>
           </div>
         ) : (
           <div className="cart-layout">

@@ -6,6 +6,11 @@ const nextConfig = {
       { source: '/productos/sofas', destination: '/productos/base-smart-start', permanent: false },
     ];
   },
+  async rewrites() {
+    return [
+      { source: '/productos/paaki-eleva', destination: '/productos/base-smart-start' },
+    ];
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },

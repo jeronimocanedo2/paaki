@@ -6,10 +6,10 @@ type CatalogItem = { title: string; price: number };
 type CheckoutItem = { id?: unknown; quantity?: unknown };
 
 const catalog: Record<string, CatalogItem> = {
-  "smart-start-Individual": { title: "Base eléctrica Smart Start · Individual", price: 4499 },
-  "smart-start-Matrimonial": { title: "Base eléctrica Smart Start · Matrimonial", price: 4699 },
-  "smart-start-Queen": { title: "Base eléctrica Smart Start · Queen", price: 5199 },
-  "smart-start-King": { title: "Base eléctrica Smart Start · King", price: 5999 },
+  "smart-start-Individual": { title: "Base eléctrica Paaki Eleva · Individual", price: 4499 },
+  "smart-start-Matrimonial": { title: "Base eléctrica Paaki Eleva · Matrimonial", price: 4699 },
+  "smart-start-Queen": { title: "Base eléctrica Paaki Eleva · Queen", price: 5199 },
+  "smart-start-King": { title: "Base eléctrica Paaki Eleva · King", price: 5999 },
   "cama-comprimida-Individual": { title: "Cama comprimida 3 en 1 · Individual", price: 8000 },
   "cama-comprimida-Matrimonial": { title: "Cama comprimida 3 en 1 · Matrimonial", price: 9499 },
   "cama-comprimida-Queen": { title: "Cama comprimida 3 en 1 · Queen", price: 11000 },
