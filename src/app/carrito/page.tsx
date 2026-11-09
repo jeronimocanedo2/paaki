@@ -35,7 +35,7 @@ export default function CartPage() {
 
   return (
     <main>
-      <div className="announcement">Envío gratis en la Zona Metropolitana de Guadalajara · Compra segura</div>
+      <div className="announcement">Entrega gratis únicamente en Guadalajara y Zapopan · Contamos con ruta propia</div>
       <header className="navbar">
         <a className="brand" href="/" aria-label="Paaki, inicio"><Image src="/logo-header.png" alt="Paaki" width={208} height={88} priority /></a>
         <nav aria-label="Navegación principal"><a href="/productos/paaki-eleva">Paaki Eleva</a><a href="/productos/paaki-eleva#galeria">Galería</a><a href="/productos/paaki-eleva#beneficios">Beneficios</a><a href="mailto:direccion@paaki.com.mx">Contacto</a></nav>
@@ -63,7 +63,7 @@ export default function CartPage() {
               ))}
             </div>
             <aside className="cart-summary">
-              <h2>Resumen</h2><div><span>Subtotal</span><strong>{money.format(subtotal)}</strong></div><div><span>Envío en ZMG</span><strong>Gratis</strong></div>
+              <h2>Resumen</h2><div><span>Subtotal</span><strong>{money.format(subtotal)}</strong></div><div><span>Entrega en Guadalajara o Zapopan</span><strong>Gratis</strong></div>
               <form className="checkout-form" onSubmit={startCheckout}>
                 <h3>Datos de entrega</h3>
                 <label>Nombre completo<input name="name" type="text" autoComplete="name" required maxLength={100} /></label>
@@ -76,9 +76,9 @@ export default function CartPage() {
                   <label>Colonia<input name="neighborhood" type="text" required maxLength={80} /></label>
                   <label>Código postal<input name="postalCode" type="text" inputMode="numeric" autoComplete="postal-code" required pattern="[0-9]{5}" maxLength={5} /></label>
                 </div>
-                <label>Municipio<select name="municipality" required defaultValue=""><option value="" disabled>Selecciona uno</option><option>Guadalajara</option><option>Zapopan</option><option>San Pedro Tlaquepaque</option><option>Tonalá</option><option>Tlajomulco de Zúñiga</option><option>El Salto</option><option>Juanacatlán</option><option>Ixtlahuacán de los Membrillos</option><option>Zapotlanejo</option></select></label>
+                <label>Municipio<select name="municipality" required defaultValue=""><option value="" disabled>Selecciona uno</option><option>Guadalajara</option><option>Zapopan</option></select></label>
                 <label>Referencias para llegar <span>(opcional)</span><textarea name="references" rows={2} maxLength={200} /></label>
-                <p>Entrega únicamente en la Zona Metropolitana de Guadalajara, sin costo.</p>
+                <p>Por el momento, entregamos sin costo únicamente en Guadalajara y Zapopan, dentro de nuestra ruta de reparto.</p>
                 {checkoutError && <p className="checkout-error" role="alert">{checkoutError}</p>}
                 <button className="buy-button checkout-button" type="submit" disabled={submitting}>{submitting ? "Conectando con Mercado Pago…" : "Pagar con Mercado Pago"}</button>
               </form>

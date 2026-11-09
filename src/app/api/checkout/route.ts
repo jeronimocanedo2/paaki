@@ -19,10 +19,7 @@ const catalog: Record<string, CatalogItem> = {
   "sofá-trébol": { title: "Sofá Trébol", price: 3250 },
 };
 
-const zmgMunicipalities = new Set([
-  "Guadalajara", "Zapopan", "San Pedro Tlaquepaque", "Tonalá", "Tlajomulco de Zúñiga",
-  "El Salto", "Juanacatlán", "Ixtlahuacán de los Membrillos", "Zapotlanejo",
-]);
+const deliveryMunicipalities = new Set(["Guadalajara", "Zapopan"]);
 
 function clean(value: unknown, maxLength: number) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -52,7 +49,7 @@ export async function POST(request: NextRequest) {
       return {
         external_code: id.replace(/[^a-zA-Z0-9_-]/g, "-").slice(0, 50),
         title: product.title,
-        description: "Producto Paaki con envío gratis en la ZMG",
+        description: "Producto Paaki con entrega gratis en Guadalajara y Zapopan",
         quantity,
         unit_price: product.price.toFixed(2),
       };
@@ -66,7 +63,7 @@ export async function POST(request: NextRequest) {
     const postalCode = clean(customer.postalCode, 5);
     const municipality = clean(customer.municipality, 80);
     const references = clean(customer.references, 200);
-    if (!name || !/^\S+@\S+\.\S+$/.test(email) || phone.length < 10 || !street || !neighborhood || !/^\d{5}$/.test(postalCode) || !zmgMunicipalities.has(municipality)) {
+    if (!name || !/^\S+@\S+\.\S+$/.test(email) || phone.length < 10 || !street || !neighborhood || !/^\d{5}$/.test(postalCode) || !deliveryMunicipalities.has(municipality)) {
       return NextResponse.json({ error: "Revisa tus datos de entrega y vuelve a intentarlo." }, { status: 400 });
     }
 
