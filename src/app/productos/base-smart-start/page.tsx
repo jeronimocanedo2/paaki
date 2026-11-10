@@ -6,10 +6,10 @@ import CartButton from "../../components/CartButton";
 import { useCart } from "../../components/CartProvider";
 
 const sizes = [
-  { name: "Individual", price: 4199, stock: 231, dimensions: "96.5 × 200 cm" },
-  { name: "Matrimonial", price: 4499, stock: 56, dimensions: "135 × 186 cm" },
-  { name: "Queen", price: 4799, stock: 71, dimensions: "150 × 200.4 cm" },
-  { name: "King", price: 5199, stock: 37, dimensions: "193 × 210 cm" },
+  { name: "Individual", price: 4199, dimensions: "96.5 × 200 cm" },
+  { name: "Matrimonial", price: 4499, dimensions: "135 × 186 cm" },
+  { name: "Queen", price: 4799, dimensions: "150 × 200.4 cm" },
+  { name: "King", price: 5199, dimensions: "193 × 210 cm" },
 ];
 
 const photos = [
@@ -75,7 +75,7 @@ export default function PaakiElevaPage() {
             </div>
           </fieldset>
           <div className="buy-row">
-            <div><span className="price">{money.format(selectedSize.price)}</span><small>MXN · {selectedSize.stock} disponibles</small></div>
+            <div><span className="price">{money.format(selectedSize.price)}</span><small>MXN</small></div>
             <button className="buy-button" type="button" onClick={() => addItem({ id: `smart-start-${selectedSize.name}`, name: "Base eléctrica Paaki Eleva", variant: selectedSize.name, price: selectedSize.price, image: "/smart-start-cart-clean.png" })}>Agregar al carrito</button>
           </div>
           <p className="shipping-note">Entrega gratuita exclusivamente en Guadalajara y Zapopan, dentro de nuestra ruta de reparto.</p>
