@@ -121,7 +121,7 @@ export async function POST(request: NextRequest) {
             <strong>Teléfono:</strong> ${escapeHtml(customerPhone)}<br>
             <strong>Dirección:</strong> ${escapeHtml(street)}, ${escapeHtml(address.neighborhood)}, ${escapeHtml(address.city)}, C.P. ${escapeHtml(address.zip_code)}<br>
             <strong>Referencias:</strong> ${escapeHtml(address.complement)}</p>
-            <p style="margin-top:28px;color:#596559">Envío gratis en la Zona Metropolitana de Guadalajara. Contacta al cliente para coordinar la entrega en un máximo de 5 días hábiles.</p>
+            <p style="margin-top:28px;color:#596559">Entrega gratuita únicamente en Guadalajara y Zapopan, dentro de la ruta de reparto. Contacta al cliente para coordinarla en un máximo de 5 días hábiles.</p>
           </div>
         </div>`,
       tags: [{ name: "order_id", value: orderId }],
