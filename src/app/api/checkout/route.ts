@@ -6,6 +6,7 @@ type CatalogItem = { title: string; price: number };
 type CheckoutItem = { id?: unknown; quantity?: unknown };
 
 const catalog: Record<string, CatalogItem> = {
+  "paaki-production-test-10": { title: "Prueba de compra Paaki", price: 10 },
   "smart-start-Individual": { title: "Base eléctrica Paaki Eleva · Individual", price: 4199 },
   "smart-start-Matrimonial": { title: "Base eléctrica Paaki Eleva · Matrimonial", price: 4499 },
   "smart-start-Queen": { title: "Base eléctrica Paaki Eleva · Queen", price: 4799 },
