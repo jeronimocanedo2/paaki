@@ -61,6 +61,7 @@ export default function PaakiElevaPage() {
           <p className="eyebrow">Descanso inteligente</p>
           <h1 className="product-title">Base eléctrica ajustable Paaki Eleva</h1>
           <p className="product-lead">Eleva la cabecera con solo presionar un botón. Ideal para leer, ver televisión o encontrar una posición más cómoda para descansar.</p>
+          <div className="mattress-compatibility" role="note"><strong>Revisa la compatibilidad de tu colchón</strong><span>Paaki Eleva funciona con colchones flexibles de espuma (foam o memory foam). No se recomienda para colchones de resortes tradicionales, ya que no se adaptan correctamente al movimiento de la base.</span></div>
           <ul className="feature-list"><li>Elevación eléctrica de cabecera</li><li>Control cableado de 2 botones</li><li>Estructura plegable de acero</li><li>Instalación sencilla</li></ul>
           <div className="size-photo-notice" role="note"><strong>Recibirás la medida que elijas.</strong><span>Las fotos muestran la versión Individual, pero tu pedido se prepara y entrega en la medida seleccionada: Individual, Matrimonial, Queen o King.</span></div>
           <fieldset>

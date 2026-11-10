@@ -25,6 +25,7 @@ export default function Home() {
           <p className="smart-home-lead">Conoce Paaki Eleva, la base que eleva tu cabecera para leer, ver televisión o encontrar una posición más cómoda al descansar.</p>
           <div className="hero-actions"><a className="primary-button" href="/productos/paaki-eleva">Ver tamaños y comprar</a></div>
           <div className="smart-home-proof"><span><b>Desde $4,199</b> MXN</span><span><b>Entrega gratis</b> en Guadalajara y Zapopan</span><span><b>Máximo 5 días hábiles</b> para recibirla</span></div>
+          <div className="mattress-compatibility" role="note"><strong>Compatibilidad importante</strong><span>Diseñada para colchones flexibles de espuma (foam o memory foam). No se recomienda para colchones de resortes tradicionales, porque no se articulan correctamente con la base.</span></div>
         </div>
         <div className="smart-home-visual">
           <div className="hero-photo-frame"><Image src="/smart-start-home-cover.png" alt="Base eléctrica Paaki Eleva en una habitación" width={1630} height={965} priority /></div>
@@ -43,7 +44,7 @@ export default function Home() {
       </section>
 
       <section className="smart-price-section" id="precios">
-        <div className="price-intro"><p className="eyebrow">Elige la medida para tu colchón</p><h2>Una Paaki Eleva para cada espacio.</h2><p>Todos los tamaños incluyen control cableado, patas y accesorios. Entregamos sin costo exclusivamente en Guadalajara y Zapopan, dentro de nuestra ruta de reparto.</p><a className="primary-button" href="/productos/paaki-eleva">Elegir medida y comprar</a></div>
+        <div className="price-intro"><p className="eyebrow">Elige la medida para tu colchón</p><h2>Una Paaki Eleva para cada espacio.</h2><p>Todos los tamaños incluyen control cableado, patas y accesorios. La base está diseñada para colchones flexibles de espuma; no se recomienda para colchones de resortes tradicionales. Entregamos sin costo exclusivamente en Guadalajara y Zapopan, dentro de nuestra ruta de reparto.</p><a className="primary-button" href="/productos/paaki-eleva">Elegir medida y comprar</a></div>
         <div className="home-size-list">{sizes.map((size) => <a href="/productos/paaki-eleva" key={size.name}><span>{size.name}</span><strong>{size.price} <small>MXN</small></strong><b>→</b></a>)}</div>
       </section>
 
